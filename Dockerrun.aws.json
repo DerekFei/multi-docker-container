@@ -5,7 +5,7 @@
             "name": "client",
             "image": "h259591/multi-docker-client",
             "hostname": "client",
-            "essential": false, //if this crashes, other container still works (at leaset one thing has to be essential)
+            "essential": false,
             "memory": 128
         },
         {
@@ -33,7 +33,7 @@
                     "containerPort": 80
                 }
             ],
-            "links": [ "client", "server" ] //explicit link for the container name 
+            "links": [ "client", "server" ] 
         }
 
     ]
