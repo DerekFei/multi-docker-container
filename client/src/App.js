@@ -12,8 +12,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
             <p>
+              Fib Calculator
               Edit <code>src/App.js</code> and save to reload.
             </p>
             <Link to ="/">Home</Link>
