@@ -1,0 +1,36 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions":[
+        {
+            "name": "client",
+            "image": "h259591/multi-docker-client",
+            "hostname": "client",
+            "essential": false //if this crashes, other container still works (at leaset one thing has to be essential)
+        },
+        {
+            "name": "server",
+            "image": "h259591/multi-docker-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "h259591/multi-docker-worker",
+            "hostname": "worker",
+            "essential": false
+        },{
+            "name": "nginx",
+            "image": "h259591/multi-docker-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [ "client", "server" ] //explicit link for the container name 
+        }
+
+    ]
+}
